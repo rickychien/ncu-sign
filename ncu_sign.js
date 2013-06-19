@@ -15,12 +15,11 @@ function doSignIn(error) {
   projects.forEach(function(proj) {
     if (projectValue == proj.value && action == "signin") {
       browser.choose("signin").pressButton("submit", function() {
-	console.log("Project value :" + proj.value + " signed in successful.");	
-	browser.close();
+        console.log("Project value :" + proj.value + " signed in successful.");
+        browser.close();
       });
     }
   });
-
 }
 
 function doSignOut(error) {
@@ -33,19 +32,17 @@ function doSignOut(error) {
 function doLogin() {
   browser.visit(signURL + action, function() {
     browser.
-      fill("j_username", id).
-      fill("j_password", pw).
-      pressButton("Login", function() {
-	if (action == "signin") {
-	  doSignIn();
-	} 
-	else if (action == "signout") {
-	  doSignOut();
-	} 
-	else {
-	  console.log("Invalid command");
-	}
-      });
+    fill("j_username", id).
+    fill("j_password", pw).
+    pressButton("Login", function() {
+      if (action == "signin") {
+        doSignIn();
+      } else if (action == "signout") {
+        doSignOut();
+      } else {
+        console.log("Invalid command");
+      }
+    });
   });
 }
 
