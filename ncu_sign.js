@@ -10,7 +10,6 @@ var pid = argv._[3];
 var browser = new Browser();
 
 function doSignIn(error) {
-  var targetRadio = browser.query("input[value='" + pid + "']");
   browser.choose('input[value="' + pid + '"]').pressButton("submit", function() {
     console.log("Project value :" + pid + " signed in.");
     browser.close();
