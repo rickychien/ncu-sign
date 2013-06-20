@@ -1,17 +1,16 @@
-var Browser = require("zombie");
-var assert = require("assert");
-var argv = require('optimist').argv;
-
+var Browser = require('zombie');
+var assert = require('assert');
+var argv = process.argv;
 var signURL = "http://140.115.182.62/PartTime/parttime.php/";
-var action = argv._[0];
-var id = argv._[1];
-var pw = argv._[2];
-var pid = argv._[3];
+var action = argv[2];
+var id = argv[3];
+var pw = argv[4];
+var pid = argv[5];
 var browser = new Browser();
 
 function doSignIn() {
   browser.
-  choose('input[value="' + pid + '"]', chooseError).
+  choose('input[value="' + pid + '"]').
   pressButton("submit", function() {
     console.log("Project value :" + pid + " signed in.");
     browser.close();
@@ -25,10 +24,6 @@ function doSignOut() {
     console.log("Signed out");
     browser.close();
   });
-}
-
-function chooseError(error) {
-  console.log("test: " + error);
 }
 
 function doLogin() {
