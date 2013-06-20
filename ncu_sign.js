@@ -8,6 +8,17 @@ var pw = argv[4];
 var pid = argv[5];
 var browser = new Browser();
 
+function doArgvCheck() {
+  if (argv.length != 6) {
+    console.log("Usage: node ncu_sign.js Action ID PASSWD ProjectID.\n" + 
+                "Action: signin, signout.\n" +
+                "ProjectID: input button value of NCU signin website.");
+    return false;
+  }
+
+  return true;
+}
+
 function doSignIn() {
   browser.
   choose('input[value="' + pid + '"]').
@@ -44,4 +55,6 @@ function doLogin() {
   });
 }
 
-doLogin();
+if (doArgvCheck()) {
+  doLogin();
+}
