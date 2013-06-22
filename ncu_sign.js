@@ -1,5 +1,4 @@
 var Browser = require('zombie');
-var assert = require('assert');
 var argv = process.argv;
 var signURL = "http://140.115.182.62/PartTime/parttime.php/";
 var action = argv[2];
