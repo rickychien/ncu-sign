@@ -1,7 +1,6 @@
 #!/bin/bash
 
 BASEDIR=$(dirname $0)
-MINUTES=$[($RANDOM%25)]
-echo "Now will execute script after $MINUTES minutes."
-sleep $MINUTES
+SEC=$[($RANDOM % 25) * 60]
+sleep $SEC
 node $BASEDIR/ncu_sign.js $1 $2 $3 $4 
