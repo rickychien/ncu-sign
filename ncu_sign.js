@@ -1,11 +1,11 @@
-var Browser = require('zombie');
-var argv = process.argv;
-var signURL = "http://140.115.182.62/PartTime/parttime.php/";
-var action = argv[2];
-var id = argv[3];
-var pw = argv[4];
-var pid = argv[5];
-var browser = new Browser();
+var Browser = require('zombie'),
+    argv = process.argv,
+    signURL = "http://140.115.182.62/PartTime/parttime.php/",
+    action = argv[2],
+    id = argv[3],
+    pw = argv[4],
+    pid = argv[5],
+    browser = new Browser();
 
 function doArgvCheck() {
   if (argv.length != 6) {
