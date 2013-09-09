@@ -51,8 +51,7 @@ function doSignOut() {
 }
 
 function doLogin() {
-  browser.visit(signURL + action).
-  then(function() {
+  browser.visit(signURL + action, function() {
     browser.
     fill("j_username", id).
     fill("j_password", pw).
@@ -67,10 +66,6 @@ function doLogin() {
         console.log("Invalid command");
       }
     });
-  }).
-  fail(function() {
-    console.log("Visiting website fail, retry...");
-    doLogin();
   });
 }
 
