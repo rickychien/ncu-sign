@@ -29,8 +29,7 @@ function doSignIn() {
     });
   }).
   fail(function() {
-    console.log("Sign in fail, retry to sign in...");
-    doSignIn();
+    console.log("Sign in fail");
   });
 }
 
@@ -45,8 +44,7 @@ function doSignOut() {
     });
   }).
   fail(function() {
-    console.log("Sign out fail, retry to signout...");
-    doSignOut();
+    console.log("Sign out fail");
   });
 }
 
