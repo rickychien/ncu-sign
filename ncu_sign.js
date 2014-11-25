@@ -9,9 +9,7 @@ var Browser = require('zombie'),
 
 function doArgvCheck() {
   if (argv.length != 6) {
-    console.log("Usage: node ncu_sign.js Action ID PASSWD ProjectID.\n" +
-      "Action: signin, signout.\n" +
-      "ProjectID: input button value of NCU signin website.");
+    doUsage();
     return false;
   }
 
@@ -65,6 +63,29 @@ function doLogin() {
       }
     });
   });
+}
+
+function doUsage() {
+  console.log('Usage:');
+  console.log('\tnode ncu_sign.js Action ID PASSWD ProjectID.');
+  console.log('');
+
+  console.log('Action:');
+  console.log('\tsignin');
+  console.log('\tsignout');
+  console.log('');
+
+  console.log('ID:');
+  console.log('\tYour student ID');
+  console.log('');
+
+  console.log("PASSWD:");
+  console.log("\tYour password of NCU's SSO");
+  console.log('');
+
+  console.log('ProjectID:');
+  console.log('\tInput button value of NCU signin website.');
+  console.log('');
 }
 
 if (doArgvCheck()) {
